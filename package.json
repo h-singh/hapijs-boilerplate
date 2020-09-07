@@ -1,0 +1,30 @@
+{
+  "name": "scheduler",
+  "version": "1.0.0",
+  "description": "A Hapi way of creating/running schedules arbitory js scripts/tasks.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=container NODE_APP_INSTANCE=local node --experimental-import-meta-resolve src/index.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^9.1.0",
+    "@hapi/hapi": "^20.0.0",
+    "@hapi/inert": "^6.0.2",
+    "@hapi/joi": "^17.1.1",
+    "axios": "^0.20.0",
+    "config": "^3.3.1",
+    "lodash": "^4.17.20",
+    "moment": "^2.27.0",
+    "moment-range": "^4.0.2",
+    "moment-recur": "^1.0.7",
+    "mongodb": "^3.6.1",
+    "rxjs": "^6.6.2",
+    "uuid": "^8.3.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  }
+}

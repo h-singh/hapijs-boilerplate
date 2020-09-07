@@ -1,0 +1,15 @@
+{
+  "server": {
+    "port": 9080,
+    "host": "0.0.0.0"
+  },
+  "logs": {
+    "level": "debug",
+    "path": "/tmp"
+  },
+  "services": {
+    "mongodb": {
+      "url": "mongodb://localhost:27017/scheduler"
+    }
+  }
+}
