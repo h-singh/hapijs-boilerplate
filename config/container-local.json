@@ -9,7 +9,7 @@
   },
   "services": {
     "mongodb": {
-      "url": "mongodb://localhost:27017/scheduler"
+      "url": "mongodb://localhost:27017/dbname"
     }
   }
 }

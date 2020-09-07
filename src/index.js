@@ -3,7 +3,7 @@ import logger from "./logger/logger.js";
 import Exts from "./ext/exts.js";
 import Events from "./events/events.js";
 import init from "./routes/index.js";
-import MongoDBClient from "./db/index.js"; 
+import MongoDBClient from "./db/index.js";
 
 class Server {
 
@@ -22,11 +22,19 @@ class Server {
       console.log('Init Process Completed .... \nRegistering routes:');
       logger.info('Init Process Completed .... \nRegistering routes:');
       await init(this.server);
+    }).then(async () => {
+      const mongo = new MongoDBClient()
+      await mongo.init({});
+      this.server.app.mongodb = mongo.mongoDB;
+      this.server.app.mongoClient = mongo;
+    }).then(() => {
+      // add final route for readiness probe.
       this.server.route({
         handler: async () => {
           return {
             ok: true,
-            ts: new Date().toISOString()
+            ts: new Date().toISOString(),
+            mongo: {isConnected: this.server.app.mongoClient.isConnected}
           };
         },
         method: "GET",
